@@ -1,5 +1,7 @@
-
 JSFの基本的な使用方法を簡単なサンプルコードを用いて示す。
+JSFを利用する際は、開発者は基本的に画面を実装するhtmlページとブラウザの
+乳出力値の保持と、それらの値を元に処理を行うJavaBeanクラスであるManagedBeanを
+用意する。
 
 1 画面の実装
 
@@ -17,9 +19,33 @@ JSF2.0以降は、htmlベースにした実装が標準として推奨されて�
     <h:body>
         <h:form>
             <h:inputText value="#{myBean.name}"/>
-            <h:commandButton value="send" action="#{myBean.outputName}"/> 
+            <h:commandButton value="send" action="#{myBean.sendName}"/> 
         <h:/form>       
     </h:body>
 </html>
 
-2 
+JSFエンジンが提供する標準タグライブラリであるJSFタグ(xmlns:h="http://xmlns.jcp.org/jsf/html")の他、
+通常のhtmlタグを記述することが可能である。
+
+2 マネージドBean
+
+マネージドBeanはPOJOベースでの実装が可能である。
+以下に簡単なサンプルコードを示す。
+
+@ManagedBean
+public class myAction {
+
+    private String name;
+
+    
+    //ゲッター、セッター
+
+    public void sendName() {
+        return "result.xhtml";
+    }
+}
+
+
+マネージドBeanにはビジネスロジックや、画面遷移の実装を行うことができる。
+
+

@@ -1,0 +1,25 @@
+
+JSFの基本的な使用方法を簡単なサンプルコードを用いて示す。
+
+1 画面の実装
+
+JSFにおける画面の実装は、jsp・html(実際にはxhtmlの形式)をベースに行うことが可能である。
+JSF2.0以降は、htmlベースにした実装が標準として推奨されている。
+以下に、簡単なサンプルコードを示す。
+
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:inputText value="#{myBean.name}"/>
+            <h:commandButton value="send" action="#{myBean.outputName}"/> 
+        <h:/form>       
+    </h:body>
+</html>
+
+2 
